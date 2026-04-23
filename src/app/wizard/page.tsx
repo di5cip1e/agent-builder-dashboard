@@ -188,40 +188,54 @@ export default function WizardPage() {
 
   const generateAgent = async () => {
     setStep(8); // Generation state
-    const outputs = [
-      '🚀 Initializing agent build...',
-      '📁 Creating directory structure...',
-      `✓ Created: /opt/agents/${formData.botName.toLowerCase().replace(/\s+/g, '-')}/`,
-      '✓ Created: src/index.ts',
-      '✓ Created: src/config.ts',
-      '✓ Created: src/prompts/system.md',
-      '✓ Created: src/tools/api.ts',
-      '✓ Created: src/tools/database.ts',
-      '📦 Generating package.json...',
-      '🐳 Creating Dockerfile...',
-      '✓ Created: docker-compose.yml',
-      '⚙️ Configuring Stripe integration...',
-      '🔧 Setting up environment variables...',
-      '✓ Created: .env.example',
-      '📝 Generating README.md...',
-      '🔌 Building integrations...',
-      ...(formData.integrations.slack ? ['✓ Slack integration'] : []),
-      ...(formData.integrations.whatsapp ? ['✓ WhatsApp integration'] : []),
-      ...(formData.integrations.calendar ? ['✓ Calendar integration'] : []),
-      '📡 Assigning port...',
-      `✓ Assigned port: 3${Math.floor(Math.random() * 900) + 100}`,
-      '🚀 Deploying container...',
-      '✅ Agent deployed successfully!',
-      '',
-      '🎉 Your agent is ready!',
-      `🌐 URL: https://${formData.botName.toLowerCase().replace(/\s+/g, '-')}.yourdomain.com`,
-    ];
+    
+    // Initialize with starting message
+    setTerminalOutput(['🚀 Starting OpenClaw agent generation...', '']);
+    
+    try {
+      // Call the API to generate the agent
+      const response = await fetch('/api/agent/generate-realtime', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          botName: formData.botName,
+          businessName: formData.businessName,
+          industry: formData.industry,
+          field: formData.field,
+          useCases: formData.useCases,
+          tone: formData.tone,
+          interfaces: formData.interfaces,
+          skillLevel: formData.skillLevel,
+          integrations: formData.integrations,
+        }),
+      });
 
-    for (const line of outputs) {
-      if (line) {
-        setTerminalOutput((prev) => [...prev, line]);
-        await new Promise((r) => setTimeout(r, 300 + Math.random() * 200));
+      const result = await response.json();
+      
+      if (result.success) {
+        // Show files created
+        setTerminalOutput(prev => [
+          ...prev,
+          '✅ Agent generation complete!',
+          '',
+          '📁 Created files:',
+          ...(result.files || []).map((f: string) => `   - ${f}`),
+          '',
+          `📂 Agent directory: ${result.agentDir}`,
+        ]);
+      } else {
+        setTerminalOutput(prev => [
+          ...prev,
+          '❌ Generation completed with warnings',
+          result.output?.substring(0, 1000) || '',
+        ]);
       }
+    } catch (error) {
+      setTerminalOutput(prev => [
+        ...prev,
+        '❌ Error generating agent',
+        String(error),
+      ]);
     }
 
     setGenerationStatus('Complete!');

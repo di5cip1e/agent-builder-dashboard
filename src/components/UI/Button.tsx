@@ -25,7 +25,7 @@ export function Button({
     primary: 'bg-primary hover:bg-primary-dark text-white glow-primary',
     secondary: 'bg-secondary/20 text-secondary border border-secondary/30 hover:bg-secondary/30',
     outline: 'border border-primary/50 text-primary hover:bg-primary/10',
-    ghost: 'text-text-secondary hover:text-text-primary hover:bg-bg-card',
+    ghost: 'text-slate-400 hover:text-white hover:bg-slate-800',
     danger: 'bg-error/20 text-error border border-error/30 hover:bg-error/30',
   };
   

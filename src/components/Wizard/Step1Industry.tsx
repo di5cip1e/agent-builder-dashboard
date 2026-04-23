@@ -35,10 +35,10 @@ export function Step1Industry({ data, onChange, onNext }: Step1IndustryProps) {
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text-primary mb-2">
+        <h2 className="text-2xl font-bold text-white mb-2">
           What industry are you targeting?
         </h2>
-        <p className="text-text-secondary">
+        <p className="text-slate-400">
           Select the primary industry for your AI agent
         </p>
       </div>
@@ -62,8 +62,8 @@ export function Step1Industry({ data, onChange, onNext }: Step1IndustryProps) {
           exit={{ opacity: 0, height: 0 }}
           className="mt-4"
         >
-          <div className="bg-bg-dark border border-white/10 rounded-lg p-4">
-            <label className="block text-sm font-medium text-text-secondary mb-2">
+          <div className="bg-slate-900 border border-slate-700 rounded-lg p-4">
+            <label className="block text-sm font-medium text-slate-400 mb-2">
               Describe your custom industry
             </label>
             <input
@@ -71,7 +71,7 @@ export function Step1Industry({ data, onChange, onNext }: Step1IndustryProps) {
               value={data.customUseCase || ''}
               onChange={(e) => onChange({ customUseCase: e.target.value })}
               placeholder="e.g., Automotive, Non-profit, Education..."
-              className="w-full bg-bg-card border border-white/10 rounded-lg px-4 py-2.5 text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
         </motion.div>
@@ -96,12 +96,12 @@ export function Step1Industry({ data, onChange, onNext }: Step1IndustryProps) {
               onClick={() => onChange({ industry: ind.value })}
             >
               <div className={`mx-auto mb-2 ${
-                data.industry === ind.value ? 'text-primary' : 'text-text-secondary'
+                data.industry === ind.value ? 'text-primary' : 'text-slate-400'
               }`}>
                 {industryIcons[ind.value]}
               </div>
               <span className={`text-sm font-medium ${
-                data.industry === ind.value ? 'text-primary' : 'text-text-primary'
+                data.industry === ind.value ? 'text-primary' : 'text-white'
               }`}>
                 {ind.label}
               </span>

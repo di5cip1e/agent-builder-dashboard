@@ -43,10 +43,10 @@ export function Step4Tone({ data, onChange, onNext, onBack }: Step4ToneProps) {
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text-primary mb-2">
+        <h2 className="text-2xl font-bold text-white mb-2">
           What tone of voice?
         </h2>
-        <p className="text-text-secondary">
+        <p className="text-slate-400">
           How should your agent communicate?
         </p>
       </div>
@@ -97,13 +97,13 @@ export function Step4Tone({ data, onChange, onNext, onBack }: Step4ToneProps) {
                 }`}
                 onClick={() => onChange({ tone: tone.value })}
               >
-                <div className={`mx-auto mb-2 ${isSelected ? 'text-primary' : 'text-text-secondary'}`}>
+                <div className={`mx-auto mb-2 ${isSelected ? 'text-primary' : 'text-slate-400'}`}>
                   {toneIcons[tone.value]}
                 </div>
-                <span className={`text-sm font-medium block ${isSelected ? 'text-primary' : 'text-text-primary'}`}>
+                <span className={`text-sm font-medium block ${isSelected ? 'text-primary' : 'text-white'}`}>
                   {tone.label}
                 </span>
-                <span className="text-xs text-text-muted mt-1 block">
+                <span className="text-xs text-slate-500 mt-1 block">
                   {toneDescriptions[tone.value]}
                 </span>
               </Card>
@@ -117,10 +117,10 @@ export function Step4Tone({ data, onChange, onNext, onBack }: Step4ToneProps) {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-bg-dark border border-white/10 rounded-lg p-4 mt-6"
+          className="bg-slate-900 border border-slate-700 rounded-lg p-4 mt-6"
         >
-          <p className="text-xs text-text-muted mb-2">Example response:</p>
-          <p className="text-sm text-text-secondary italic">
+          <p className="text-xs text-slate-500 mb-2">Example response:</p>
+          <p className="text-sm text-slate-400 italic">
             {data.tone === 'professional' && '"Thank you for contacting us. We appreciate your inquiry and will respond within 24 hours."'}
             {data.tone === 'friendly' && '"Hey there! Thanks for reaching out. We\'d love to help you out!"'}
             {data.tone === 'casual' && '"Sup! Got your message. We\'ll get back to you ASAP."'}

@@ -19,12 +19,12 @@ const getFileIcon = (extension?: string) => {
     case 'json':
       return <FileJson className="w-4 h-4 text-warning" />;
     case 'md':
-      return <FileText className="w-4 h-4 text-text-secondary" />;
+      return <FileText className="w-4 h-4 text-slate-400" />;
     case 'yml':
     case 'yaml':
       return <FileType className="w-4 h-4 text-accent" />;
     default:
-      return <File className="w-4 h-4 text-text-muted" />;
+      return <File className="w-4 h-4 text-slate-500" />;
   }
 };
 
@@ -55,7 +55,7 @@ function FileTreeItem({ node, depth }: FileTreeItemProps) {
             animate={{ rotate: isExpanded ? 90 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <ChevronRight className="w-3 h-3 text-text-muted" />
+            <ChevronRight className="w-3 h-3 text-slate-500" />
           </motion.div>
         ) : (
           <span className="w-3" />
@@ -74,7 +74,7 @@ function FileTreeItem({ node, depth }: FileTreeItemProps) {
 
         {/* Name */}
         <span className={`text-sm ${
-          node.created ? 'text-success' : 'text-text-primary'
+          node.created ? 'text-success' : 'text-white'
         }`}>
           {node.name}
         </span>
@@ -116,10 +116,10 @@ function FileTreeItem({ node, depth }: FileTreeItemProps) {
 
 export function FileTree({ files }: FileTreeProps) {
   return (
-    <div className="bg-bg-dark rounded-xl border border-white/10 overflow-hidden">
+    <div className="bg-slate-900 rounded-xl border border-slate-700 overflow-hidden">
       {/* Header */}
-      <div className="bg-bg-card border-b border-white/10 px-4 py-3">
-        <span className="text-sm text-text-secondary">
+      <div className="bg-slate-800 border-b border-slate-700 px-4 py-3">
+        <span className="text-sm text-slate-400">
           Generated Files
         </span>
       </div>
@@ -131,7 +131,7 @@ export function FileTree({ files }: FileTreeProps) {
         ))}
 
         {files.length === 0 && (
-          <div className="text-text-muted text-center py-8">
+          <div className="text-slate-500 text-center py-8">
             No files generated yet
           </div>
         )}

@@ -5,7 +5,7 @@ export interface WizardData {
   customUseCase?: string;
   tone: string;
   customTone?: string;
-  deployment: string[];
+  interfaces: string[];
 }
 
 export interface UseCase {

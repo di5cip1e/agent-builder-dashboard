@@ -31,9 +31,9 @@ export function Terminal({ lines, isGenerating }: TerminalProps) {
   const getTypeStyles = (type: TerminalLine['type']) => {
     switch (type) {
       case 'command':
-        return 'text-text-secondary';
+        return 'text-slate-400';
       case 'output':
-        return 'text-text-primary';
+        return 'text-white';
       case 'success':
         return 'text-success';
       case 'warning':
@@ -41,7 +41,7 @@ export function Terminal({ lines, isGenerating }: TerminalProps) {
       case 'error':
         return 'text-error';
       default:
-        return 'text-text-primary';
+        return 'text-white';
     }
   };
 
@@ -59,16 +59,16 @@ export function Terminal({ lines, isGenerating }: TerminalProps) {
   };
 
   return (
-    <div className="bg-bg-dark rounded-xl border border-white/10 overflow-hidden">
+    <div className="bg-slate-900 rounded-xl border border-slate-700 overflow-hidden">
       {/* Terminal Header */}
-      <div className="bg-bg-card border-b border-white/10 px-4 py-3 flex items-center justify-between">
+      <div className="bg-slate-800 border-b border-slate-700 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="flex gap-2">
             <div className="w-3 h-3 rounded-full bg-error/50" />
             <div className="w-3 h-3 rounded-full bg-warning/50" />
             <div className="w-3 h-3 rounded-full bg-success/50" />
           </div>
-          <span className="text-sm text-text-secondary flex items-center gap-2">
+          <span className="text-sm text-slate-400 flex items-center gap-2">
             <TerminalIcon className="w-4 h-4" />
             agent-builder
           </span>
@@ -114,7 +114,7 @@ export function Terminal({ lines, isGenerating }: TerminalProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex items-center gap-2 text-text-muted"
+              className="flex items-center gap-2 text-slate-500"
             >
               <span className="animate-pulse">▋</span>
             </motion.div>

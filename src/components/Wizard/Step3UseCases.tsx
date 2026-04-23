@@ -33,10 +33,10 @@ export function Step3UseCases({ data, onChange, onNext, onBack }: Step3UseCasesP
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text-primary mb-2">
+        <h2 className="text-2xl font-bold text-white mb-2">
           Primary use cases
         </h2>
-        <p className="text-text-secondary">
+        <p className="text-slate-400">
           What tasks should your agent handle?
         </p>
       </div>
@@ -65,7 +65,7 @@ export function Step3UseCases({ data, onChange, onNext, onBack }: Step3UseCasesP
                 className={`cursor-pointer transition-all ${
                   isSelected
                     ? 'border-accent bg-accent/10'
-                    : 'border-white/10'
+                    : 'border-slate-700'
                 }`}
                 onClick={() => {
                   if (isSelected) {
@@ -89,7 +89,7 @@ export function Step3UseCases({ data, onChange, onNext, onBack }: Step3UseCasesP
                   >
                     {isSelected && <CheckCircle2 className="w-3 h-3 text-white" />}
                   </div>
-                  <span className={isSelected ? 'text-text-primary' : 'text-text-secondary'}>
+                  <span className={isSelected ? 'text-white' : 'text-slate-400'}>
                     {uc.label}
                   </span>
                 </div>
@@ -104,7 +104,7 @@ export function Step3UseCases({ data, onChange, onNext, onBack }: Step3UseCasesP
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-2 text-sm text-text-secondary mt-4"
+          className="flex items-center gap-2 text-sm text-slate-400 mt-4"
         >
           <ListChecks className="w-4 h-4 text-accent" />
           <span>{data.useCases.length} use case(s) selected</span>

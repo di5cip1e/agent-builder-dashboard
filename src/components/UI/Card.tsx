@@ -19,7 +19,7 @@ export function Card({ children, className, hover = false, glow = 'none' }: Card
   return (
     <div
       className={twMerge(
-        'bg-bg-card border border-white/10 rounded-xl p-6',
+        'bg-slate-800 border border-slate-700 rounded-xl p-6',
         hover && 'card-hover cursor-pointer',
         glowStyles[glow],
         className
@@ -50,7 +50,7 @@ interface CardTitleProps {
 
 export function CardTitle({ children, className }: CardTitleProps) {
   return (
-    <h3 className={clsx('text-lg font-semibold text-text-primary', className)}>
+    <h3 className={clsx('text-lg font-semibold text-white', className)}>
       {children}
     </h3>
   );
@@ -63,7 +63,7 @@ interface CardDescriptionProps {
 
 export function CardDescription({ children, className }: CardDescriptionProps) {
   return (
-    <p className={clsx('text-sm text-text-secondary mt-1', className)}>
+    <p className={clsx('text-sm text-slate-400 mt-1', className)}>
       {children}
     </p>
   );
@@ -89,7 +89,7 @@ interface CardFooterProps {
 
 export function CardFooter({ children, className }: CardFooterProps) {
   return (
-    <div className={clsx('mt-4 pt-4 border-t border-white/10', className)}>
+    <div className={clsx('mt-4 pt-4 border-t border-slate-700', className)}>
       {children}
     </div>
   );

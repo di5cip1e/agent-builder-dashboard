@@ -46,10 +46,10 @@ export function Review({ data, onChange, onBack, onGenerate }: ReviewProps) {
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text-primary mb-2">
+        <h2 className="text-2xl font-bold text-white mb-2">
           Review your configuration
         </h2>
-        <p className="text-text-secondary">
+        <p className="text-slate-400">
           Confirm your choices before generating the agent
         </p>
       </div>
@@ -58,8 +58,8 @@ export function Review({ data, onChange, onBack, onGenerate }: ReviewProps) {
         {/* Industry */}
         <Card className="flex items-center justify-between">
           <div>
-            <span className="text-xs text-text-muted uppercase tracking-wider">Industry</span>
-            <p className="text-text-primary font-medium">
+            <span className="text-xs text-slate-500 uppercase tracking-wider">Industry</span>
+            <p className="text-white font-medium">
               {getLabel(INDUSTRIES, data.industry)}
               {data.industry === 'custom' && data.customUseCase && ` - ${data.customUseCase}`}
             </p>
@@ -72,8 +72,8 @@ export function Review({ data, onChange, onBack, onGenerate }: ReviewProps) {
         {/* Field */}
         <Card className="flex items-center justify-between">
           <div>
-            <span className="text-xs text-text-muted uppercase tracking-wider">Operational Field</span>
-            <p className="text-text-primary font-medium">
+            <span className="text-xs text-slate-500 uppercase tracking-wider">Operational Field</span>
+            <p className="text-white font-medium">
               {getLabel(FIELDS, data.field)}
             </p>
           </div>
@@ -85,7 +85,7 @@ export function Review({ data, onChange, onBack, onGenerate }: ReviewProps) {
         {/* Use Cases */}
         <Card className="flex items-center justify-between">
           <div className="flex-1">
-            <span className="text-xs text-text-muted uppercase tracking-wider">Use Cases</span>
+            <span className="text-xs text-slate-500 uppercase tracking-wider">Use Cases</span>
             <div className="flex flex-wrap gap-2 mt-2">
               {useCaseLabels.map((label, index) => (
                 <span
@@ -106,8 +106,8 @@ export function Review({ data, onChange, onBack, onGenerate }: ReviewProps) {
         {/* Tone */}
         <Card className="flex items-center justify-between">
           <div>
-            <span className="text-xs text-text-muted uppercase tracking-wider">Tone of Voice</span>
-            <p className="text-text-primary font-medium">
+            <span className="text-xs text-slate-500 uppercase tracking-wider">Tone of Voice</span>
+            <p className="text-white font-medium">
               {getLabel(TONES, data.tone)}
               {data.tone === 'custom' && data.customTone && ` - ${data.customTone}`}
             </p>
@@ -120,7 +120,7 @@ export function Review({ data, onChange, onBack, onGenerate }: ReviewProps) {
         {/* Deployment */}
         <Card className="flex items-center justify-between">
           <div className="flex-1">
-            <span className="text-xs text-text-muted uppercase tracking-wider">Deployment</span>
+            <span className="text-xs text-slate-500 uppercase tracking-wider">Deployment</span>
             <div className="flex flex-wrap gap-2 mt-2">
               {deploymentLabels.map((label, index) => (
                 <span
@@ -146,10 +146,10 @@ export function Review({ data, onChange, onBack, onGenerate }: ReviewProps) {
             <Zap className="w-6 h-6 text-primary" />
           </div>
           <div>
-            <h4 className="text-lg font-semibold text-text-primary mb-1">
+            <h4 className="text-lg font-semibold text-white mb-1">
               Ready to build!
             </h4>
-            <p className="text-sm text-text-secondary">
+            <p className="text-sm text-slate-400">
               Your AI agent will be customized for {getLabel(INDUSTRIES, data.industry)} industry
               with focus on {getLabel(FIELDS, data.field)} operations.
             </p>

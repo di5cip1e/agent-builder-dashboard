@@ -52,10 +52,10 @@ export function Step5Deployment({ data, onChange, onNext, onBack }: Step5Deploym
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text-primary mb-2">
+        <h2 className="text-2xl font-bold text-white mb-2">
           Deployment interfaces
         </h2>
-        <p className="text-text-secondary">
+        <p className="text-slate-400">
           Where will your agent be deployed?
         </p>
       </div>
@@ -87,7 +87,7 @@ export function Step5Deployment({ data, onChange, onNext, onBack }: Step5Deploym
                 onClick={() => toggleDeployment(opt.value)}
               >
                 <div className="text-2xl mb-2">{opt.icon}</div>
-                <span className={`text-sm font-medium block ${isSelected ? 'text-secondary' : 'text-text-primary'}`}>
+                <span className={`text-sm font-medium block ${isSelected ? 'text-secondary' : 'text-white'}`}>
                   {opt.label}
                 </span>
               </Card>
@@ -103,7 +103,7 @@ export function Step5Deployment({ data, onChange, onNext, onBack }: Step5Deploym
           animate={{ opacity: 1, y: 0 }}
           className="bg-secondary/10 border border-secondary/20 rounded-lg p-4 mt-6"
         >
-          <p className="text-sm text-text-primary">
+          <p className="text-sm text-white">
             <span className="text-secondary font-medium">Deploying to:</span>{' '}
             {data.deployment.map((d) => {
               const opt = DEPLOYMENT_OPTIONS.find((o) => o.value === d);

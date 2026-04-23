@@ -51,7 +51,7 @@ export function Select({
   return (
     <div className={twMerge('w-full', className)} ref={selectRef}>
       {label && (
-        <label className="block text-sm font-medium text-text-secondary mb-2">
+        <label className="block text-sm font-medium text-slate-400 mb-2">
           {label}
         </label>
       )}
@@ -61,15 +61,15 @@ export function Select({
           onClick={() => !disabled && setIsOpen(!isOpen)}
           disabled={disabled}
           className={clsx(
-            'w-full bg-bg-dark border rounded-lg px-4 py-2.5 text-left',
+            'w-full bg-slate-900 border rounded-lg px-4 py-2.5 text-left',
             'focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent',
             'transition-all duration-200 flex items-center justify-between',
-            error ? 'border-error' : 'border-white/10',
+            error ? 'border-error' : 'border-slate-700',
             disabled && 'opacity-50 cursor-not-allowed',
             isOpen && 'ring-2 ring-primary'
           )}
         >
-          <span className={clsx(selectedOption ? 'text-text-primary' : 'text-text-muted')}>
+          <span className={clsx(selectedOption ? 'text-white' : 'text-slate-500')}>
             {selectedOption ? (
               <span className="flex items-center gap-2">
                 {selectedOption.icon && <span>{selectedOption.icon}</span>}
@@ -81,14 +81,14 @@ export function Select({
           </span>
           <ChevronDown
             className={clsx(
-              'w-4 h-4 text-text-muted transition-transform duration-200',
+              'w-4 h-4 text-slate-500 transition-transform duration-200',
               isOpen && 'rotate-180'
             )}
           />
         </button>
 
         {isOpen && (
-          <div className="absolute z-50 w-full mt-2 bg-bg-card border border-white/10 rounded-lg shadow-xl overflow-hidden animate-fade-in">
+          <div className="absolute z-50 w-full mt-2 bg-slate-800 border border-slate-700 rounded-lg shadow-xl overflow-hidden animate-fade-in">
             <div className="max-h-60 overflow-y-auto py-1">
               {options.map((option) => (
                 <button
@@ -100,8 +100,8 @@ export function Select({
                   }}
                   className={clsx(
                     'w-full px-4 py-2.5 text-left flex items-center justify-between',
-                    'hover:bg-bg-cardHover transition-colors duration-150',
-                    value === option.value ? 'text-primary' : 'text-text-primary'
+                    'hover:bg-slate-800Hover transition-colors duration-150',
+                    value === option.value ? 'text-primary' : 'text-white'
                   )}
                 >
                   <span className="flex items-center gap-2">
@@ -170,7 +170,7 @@ export function MultiSelect({
   return (
     <div className={twMerge('w-full', className)} ref={selectRef}>
       {label && (
-        <label className="block text-sm font-medium text-text-secondary mb-2">
+        <label className="block text-sm font-medium text-slate-400 mb-2">
           {label}
         </label>
       )}
@@ -179,28 +179,28 @@ export function MultiSelect({
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           className={clsx(
-            'w-full bg-bg-dark border rounded-lg px-4 py-2.5 text-left',
+            'w-full bg-slate-900 border rounded-lg px-4 py-2.5 text-left',
             'focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent',
             'transition-all duration-200 flex items-center justify-between min-h-[46px]',
-            error ? 'border-error' : 'border-white/10',
+            error ? 'border-error' : 'border-slate-700',
             isOpen && 'ring-2 ring-primary'
           )}
         >
-          <span className={clsx(selectedOptions.length > 0 ? 'text-text-primary' : 'text-text-muted')}>
+          <span className={clsx(selectedOptions.length > 0 ? 'text-white' : 'text-slate-500')}>
             {selectedOptions.length > 0
               ? `${selectedOptions.length} selected`
               : placeholder}
           </span>
           <ChevronDown
             className={clsx(
-              'w-4 h-4 text-text-muted transition-transform duration-200',
+              'w-4 h-4 text-slate-500 transition-transform duration-200',
               isOpen && 'rotate-180'
             )}
           />
         </button>
 
         {isOpen && (
-          <div className="absolute z-50 w-full mt-2 bg-bg-card border border-white/10 rounded-lg shadow-xl overflow-hidden animate-fade-in">
+          <div className="absolute z-50 w-full mt-2 bg-slate-800 border border-slate-700 rounded-lg shadow-xl overflow-hidden animate-fade-in">
             <div className="max-h-60 overflow-y-auto py-1">
               {options.map((option) => {
                 const isSelected = value.includes(option.value);
@@ -211,8 +211,8 @@ export function MultiSelect({
                     onClick={() => handleToggle(option.value)}
                     className={clsx(
                       'w-full px-4 py-2.5 text-left flex items-center justify-between',
-                      'hover:bg-bg-cardHover transition-colors duration-150',
-                      isSelected ? 'text-primary bg-primary/10' : 'text-text-primary'
+                      'hover:bg-slate-800Hover transition-colors duration-150',
+                      isSelected ? 'text-primary bg-primary/10' : 'text-white'
                     )}
                   >
                     <span className="flex items-center gap-2">

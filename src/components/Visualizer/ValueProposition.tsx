@@ -7,7 +7,7 @@ import { Card } from '@/components/UI';
 import { WizardData, INDUSTRIES, FIELDS } from '@/types/agent';
 
 interface ValuePropositionProps {
-  data: WizardData;
+  data?: WizardData;
 }
 
 const industryStats: Record<string, { timeSaved: string; efficiency: string; roi: string }> = {
@@ -28,7 +28,7 @@ const statIcons = {
 };
 
 export function ValueProposition({ data }: ValuePropositionProps) {
-  const industryKey = data.industry || 'custom';
+  const industryKey = data?.industry || 'custom';
   const stats = industryStats[industryKey] || industryStats.custom;
 
   const containerVariants = {
@@ -53,7 +53,7 @@ export function ValueProposition({ data }: ValuePropositionProps) {
       animate="visible"
       className="space-y-4"
     >
-      <h3 className="text-lg font-semibold text-text-primary">
+      <h3 className="text-lg font-semibold text-white">
         Expected Impact
       </h3>
 
@@ -62,8 +62,8 @@ export function ValueProposition({ data }: ValuePropositionProps) {
         <motion.div variants={itemVariants}>
           <Card className="text-center py-4">
             <Clock className="w-6 h-6 text-primary mx-auto mb-2" />
-            <p className="text-2xl font-bold text-text-primary">{stats.timeSaved}</p>
-            <p className="text-xs text-text-muted">Time Saved</p>
+            <p className="text-2xl font-bold text-white">{stats.timeSaved}</p>
+            <p className="text-xs text-slate-500">Time Saved</p>
           </Card>
         </motion.div>
 
@@ -71,8 +71,8 @@ export function ValueProposition({ data }: ValuePropositionProps) {
         <motion.div variants={itemVariants}>
           <Card className="text-center py-4">
             <Zap className="w-6 h-6 text-secondary mx-auto mb-2" />
-            <p className="text-2xl font-bold text-text-primary">{stats.efficiency}</p>
-            <p className="text-xs text-text-muted">Efficiency</p>
+            <p className="text-2xl font-bold text-white">{stats.efficiency}</p>
+            <p className="text-xs text-slate-500">Efficiency</p>
           </Card>
         </motion.div>
 
@@ -80,8 +80,8 @@ export function ValueProposition({ data }: ValuePropositionProps) {
         <motion.div variants={itemVariants}>
           <Card className="text-center py-4">
             <TrendingUp className="w-6 h-6 text-accent mx-auto mb-2" />
-            <p className="text-2xl font-bold text-text-primary">{stats.roi}</p>
-            <p className="text-xs text-text-muted">ROI</p>
+            <p className="text-2xl font-bold text-white">{stats.roi}</p>
+            <p className="text-xs text-slate-500">ROI</p>
           </Card>
         </motion.div>
       </div>
@@ -92,9 +92,9 @@ export function ValueProposition({ data }: ValuePropositionProps) {
           <div className="flex items-start gap-3">
             <Users className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-text-primary">
-                <span className="font-medium">For {INDUSTRIES.find((i) => i.value === data.industry)?.label || 'your industry'}:</span>{' '}
-                Automate {FIELDS.find((f) => f.value === data.field)?.label?.toLowerCase() || 'operations'}{' '}
+              <p className="text-sm text-white">
+                <span className="font-medium">For {INDUSTRIES.find((i) => i.value === data?.industry)?.label || 'your industry'}:</span>{' '}
+                Automate {FIELDS.find((f) => f.value === data?.field)?.label?.toLowerCase() || 'operations'}{' '}
                 tasks that typically take hours to complete in minutes.
               </p>
             </div>

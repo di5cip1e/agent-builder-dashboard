@@ -36,10 +36,10 @@ export function Step2Field({ data, onChange, onNext, onBack }: Step2FieldProps) 
       className="space-y-6"
     >
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-text-primary mb-2">
+        <h2 className="text-2xl font-bold text-white mb-2">
           What operational field?
         </h2>
-        <p className="text-text-secondary">
+        <p className="text-slate-400">
           Choose the primary function your agent will perform
         </p>
       </div>
@@ -75,12 +75,12 @@ export function Step2Field({ data, onChange, onNext, onBack }: Step2FieldProps) 
               onClick={() => onChange({ field: field.value })}
             >
               <div className={`mx-auto mb-2 ${
-                data.field === field.value ? 'text-secondary' : 'text-text-secondary'
+                data.field === field.value ? 'text-secondary' : 'text-slate-400'
               }`}>
                 {fieldIcons[field.value]}
               </div>
               <span className={`text-sm font-medium ${
-                data.field === field.value ? 'text-secondary' : 'text-text-primary'
+                data.field === field.value ? 'text-secondary' : 'text-white'
               }`}>
                 {field.label}
               </span>
@@ -96,7 +96,7 @@ export function Step2Field({ data, onChange, onNext, onBack }: Step2FieldProps) 
           animate={{ opacity: 1, y: 0 }}
           className="bg-primary/10 border border-primary/20 rounded-lg p-4 mt-6"
         >
-          <p className="text-sm text-text-primary">
+          <p className="text-sm text-white">
             <span className="text-primary font-medium">Context:</span>{' '}
             Building a {data.field} agent for the {data.industry} industry.
             This will help us tailor the agent&apos;s capabilities and prompts.

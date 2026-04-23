@@ -1,0 +1,47 @@
+{
+  "name": "agent-builder-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "pm2:start": "pm2 start scripts/pm2.config.js",
+    "pm2:stop": "pm2 stop agent-builder-dashboard",
+    "pm2:restart": "pm2 restart agent-builder-dashboard",
+    "pm2:logs": "pm2 logs agent-builder-dashboard"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "framer-motion": "^11.2.10",
+    "lucide-react": "^0.379.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0",
+    "stripe": "^15.8.0",
+    "express": "^4.19.2",
+    "uuid": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "fs-extra": "^11.2.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@types/express": "^4.17.21",
+    "@types/uuid": "^9.0.8",
+    "@types/fs-extra": "^11.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

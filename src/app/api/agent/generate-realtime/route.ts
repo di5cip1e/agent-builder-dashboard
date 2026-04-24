@@ -28,6 +28,11 @@ export async function POST(request: NextRequest) {
     const agentSlug = botName.toLowerCase().replace(/\s+/g, '-');
     const agentDir = `/opt/agents/${agentSlug}`;
     
+    // Clean up existing agent directory if it exists (for re-generations)
+    if (fs.existsSync(agentDir)) {
+      fs.rmSync(agentDir, { recursive: true, force: true });
+    }
+    
     // Ensure directory exists
     if (!fs.existsSync('/opt/agents')) {
       fs.mkdirSync('/opt/agents', { recursive: true });
@@ -509,7 +514,6 @@ export default function Home() {
     </html>
   );
 }`;
-      fs.mkdirSync(path.join(webAppDir, 'src', 'app'));
       fs.writeFileSync(path.join(webAppDir, 'src', 'app', 'layout.tsx'), layoutHtml);
 
       // globals.css

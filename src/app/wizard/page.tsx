@@ -54,7 +54,9 @@ const TONUES = [
 ];
 
 const INTERFACES = [
-  { value: 'web-widget', label: 'Web Widget' },
+  { value: 'web-widget', label: 'Web Widget', desc: 'Embeddable chat on your site' },
+  { value: 'web-app', label: 'Web App', desc: 'Full custom chat app (white-label)' },
+  { value: 'mobile-app', label: 'Mobile App', desc: 'iOS & Android React Native' },
   { value: 'slack', label: 'Slack Bot' },
   { value: 'sms', label: 'SMS' },
   { value: 'whatsapp', label: 'WhatsApp' },

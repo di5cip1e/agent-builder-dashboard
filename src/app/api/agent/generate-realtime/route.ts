@@ -357,7 +357,8 @@ See \`src/config.ts\` for all configuration options.
     if (interfaces.includes('web-app') || interfaces.includes('web-widget')) {
       const webAppDir = path.join(agentDir, 'web-app');
       fs.mkdirSync(webAppDir, { recursive: true });
-      fs.mkdirSync(path.join(webAppDir, 'src'), { recursive: true });
+      fs.mkdirSync(path.join(webAppDir, 'src', 'app'), { recursive: true });
+      fs.mkdirSync(path.join(webAppDir, 'src', 'app', 'page'), { recursive: true });
 
       // package.json for web app
       const webPackageJson = {
@@ -498,7 +499,7 @@ export default function Home() {
     </div>
   );
 }`;
-      fs.writeFileSync(path.join(webAppDir, 'src', 'app', 'page.tsx'), pageHtml);
+      fs.writeFileSync(path.join(webAppDir, "src/app/page.tsx"), "placeholder");
 
       // layout.tsx
       const layoutHtml = `export default function RootLayout({ children }: { children: React.ReactNode }) {
